@@ -1,6 +1,6 @@
 # Will the User Ever Know? Covert Indirect Prompt Injection Attacks on Tool-Using LLM Agents
 
-[![EMNLP 2026 (Oral)](https://img.shields.io/badge/EMNLP%202026-Main%20Conference-b31b1b)](https://yslmoment.github.io/ICoA/)
+[![EMNLP 2026 (Oral)](https://img.shields.io/badge/EMNLP%202026-Oral-b31b1b)](https://yslmoment.github.io/ICoA/)
 [![arXiv](https://img.shields.io/badge/arXiv-2608.30362-b31b1b)](https://arxiv.org/abs/2608.30362)
 [![Project Page](https://img.shields.io/badge/Project%20Page-ICoA-1b4f8f)](https://yslmoment.github.io/ICoA/)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
@@ -215,6 +215,7 @@ are not fixed here — changing any of them would move a published number.
   author    = {Lee, Yunseok and Kim, Yunji and Lee, Woojin},
   booktitle = {Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing},
   year      = {2026},
+  note      = {Oral presentation},
   eprint    = {2608.30362},
   archivePrefix = {arXiv},
   primaryClass  = {cs.AI}

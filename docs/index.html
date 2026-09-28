@@ -13,7 +13,7 @@
   <meta property="og:url" content="https://yslmoment.github.io/ICoA/">
   <meta property="og:image" content="https://yslmoment.github.io/ICoA/teaser.png">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=20260928-spacing">
   <script src="site.js" defer></script>
 </head>
 <body>
@@ -25,7 +25,7 @@
 
   <main id="main" class="page">
     <header class="paper-header">
-      <h1>Will the User Ever Know?<span>Covert Indirect Prompt Injection Attacks<br class="title-break"> on Tool-Using LLM Agents</span></h1>
+      <h1>Will the User Ever Know?<span>Covert Indirect Prompt Injection Attacks on Tool-Using LLM Agents</span></h1>
       <p class="venue">EMNLP 2026 Main Conference · <strong>Oral</strong></p>
       <p class="authors"><span><a href="https://yslmoment.github.io/">Yunseok Lee</a><sup>*</sup></span><span>Yunji Kim<sup>*</sup></span><span>Woojin Lee<sup>†</sup></span></p>
       <p class="affiliation">Dongguk University, Seoul</p>
@@ -40,7 +40,7 @@
 
     <figure class="teaser">
       <a href="teaser.png" aria-label="View the overt and covert comparison at full resolution"><img src="teaser.png" width="1293" height="431" alt="Two agent traces execute the same tool calls. The overt final response reports the injected action; the covert response only reports the user's original task."></a>
-      <figcaption><strong>Overt and covert outcomes.</strong> Both traces execute the same tool calls and receive the same attack success rate. Only the overt response reveals the injected action to the user.</figcaption>
+      <figcaption><strong>Overt and covert outcomes.</strong> Both traces execute the same tool calls and receive the same attack success rate. Only the overt response reveals the injected action to the user. <a class="figure-link" href="teaser.png">View full-size figure</a></figcaption>
     </figure>
 
     <section id="abstract" class="prose" aria-labelledby="abstract-title">
@@ -56,7 +56,7 @@
       </div>
       <figure class="method-figure">
         <a href="method.png" aria-label="View Figure 4, the ICoA method, at full resolution"><img src="method.png" width="1832" height="660" loading="lazy" alt="Figure 4 from the paper. ICoA places a user framing, an injected task, and a RETURN anchor in a tool observation. The resulting trajectory executes the injected task and resumes the original user task before answering."></a>
-        <figcaption><strong>ICoA overview (Figure 4 in the paper).</strong> User framing induces the injected action, while the RETURN anchor brings the agent back to the original task. <a href="paper.pdf#page=5">See Section 4.</a></figcaption>
+        <figcaption><strong>ICoA overview (Figure 4 in the paper).</strong> User framing induces the injected action, while the RETURN anchor brings the agent back to the original task. <a href="paper.pdf#page=5">See Section 4.</a> <a class="figure-link" href="method.png">View full-size figure</a></figcaption>
       </figure>
       <p class="prose">We distinguish execution from disclosure using CSR and OSR, with <strong>ASR = CSR + OSR</strong>. Each rate is measured over all evaluated traces. Disclosure is judged from the agent’s final response; it is not a direct measurement of human awareness.</p>
     </section>

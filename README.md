@@ -1,6 +1,6 @@
 # Will the User Ever Know? Covert Indirect Prompt Injection Attacks on Tool-Using LLM Agents
 
-[![EMNLP 2026](https://img.shields.io/badge/EMNLP%202026-Main%20Conference-b31b1b)](https://yslmoment.github.io/ICoA/)
+[![EMNLP 2026 (Oral)](https://img.shields.io/badge/EMNLP%202026-Main%20Conference-b31b1b)](https://yslmoment.github.io/ICoA/)
 [![arXiv](https://img.shields.io/badge/arXiv-2608.30362-b31b1b)](https://arxiv.org/abs/2608.30362)
 [![Project Page](https://img.shields.io/badge/Project%20Page-ICoA-1b4f8f)](https://yslmoment.github.io/ICoA/)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
@@ -11,7 +11,7 @@ Dongguk University-Seoul &nbsp;·&nbsp; `{yslee0005, 2022113147, wj926}@dgu.ac.k
 
 <sub><sup>\*</sup> Equal contribution. &nbsp; <sup>†</sup> Corresponding author.</sub>
 
-Official implementation of **ICoA (Induced Covert Attack)**, accepted to **EMNLP 2026 (Main Conference)**.
+Official implementation of **ICoA (Induced Covert Attack)**, accepted to **EMNLP 2026 Oral**.
 
 ---
 

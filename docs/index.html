@@ -1,70 +1,67 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Will the User Ever Know? — ICoA · EMNLP 2026 Oral</title>
-<meta name="description" content="Covert Indirect Prompt Injection Attacks on Tool-Using LLM Agents. EMNLP 2026 Main Conference, Oral. Method, paper, code, and experimental results.">
-<link rel="stylesheet" href="style.css">
-<script src="site.js" defer></script>
-<link rel="canonical" href="https://yslmoment.github.io/ICoA/">
-<meta property="og:title" content="Will the User Ever Know? — EMNLP 2026 Oral">
-<meta property="og:image" content="https://yslmoment.github.io/ICoA/teaser.png">
-<meta name="twitter:card" content="summary_large_image">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <title>Will the User Ever Know? — EMNLP 2026 Oral</title>
+  <meta name="description" content="Will the User Ever Know? Covert Indirect Prompt Injection Attacks on Tool-Using LLM Agents. Yunseok Lee, Yunji Kim, and Woojin Lee. EMNLP 2026 Main Conference, Oral.">
+  <link rel="canonical" href="https://yslmoment.github.io/ICoA/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Will the User Ever Know? — EMNLP 2026 Oral">
+  <meta property="og:description" content="Covert Indirect Prompt Injection Attacks on Tool-Using LLM Agents. A research project from Dongguk University.">
+  <meta property="og:url" content="https://yslmoment.github.io/ICoA/">
+  <meta property="og:image" content="https://yslmoment.github.io/ICoA/teaser.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="style.css">
+  <script src="site.js" defer></script>
 </head>
 <body>
-<a class="skip-link" href="#main">Skip to content</a>
-<main class="wrap" id="main">
-
-  <h1>Will the User Ever Know?
-    <span class="sub">Covert Indirect Prompt Injection Attacks on Tool-Using LLM Agents</span>
-  </h1>
-  <p class="venue">EMNLP 2026 &middot; Main Conference &middot; <strong>Oral</strong></p>
-
-  <p class="authors">Yunseok Lee<sup>1*</sup>, Yunji Kim<sup>1*</sup>, Woojin Lee<sup>1&dagger;</sup></p>
-  <p class="affil"><sup>1</sup>Dongguk University-Seoul</p>
-  <p class="note"><sup>*</sup>Equal contribution. &nbsp; <sup>&dagger;</sup>Corresponding author.</p>
-  <p class="note">{yslee0005, 2022113147, wj926}@dgu.ac.kr</p>
-
-  <nav class="links" aria-label="Paper resources">
-    <a href="paper.pdf">Paper (PDF)</a>
-    <a href="https://arxiv.org/abs/2608.30362">arXiv</a>
-    <a href="https://github.com/yslmoment/ICoA">Code</a>
-    <a href="#results">Results</a>
-    <a href="#bibtex">BibTeX</a>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <nav class="page top-links" aria-label="Researcher and lab">
+    <a href="https://yslmoment.github.io/">Yunseok Lee</a>
+    <a href="https://damilab.github.io/">DAMILAB</a>
   </nav>
 
-  <figure>
-    <a href="teaser.png" aria-label="View the comparison figure at full resolution"><img width="1293" height="431" src="teaser.png" alt="Two agent traces executing identical tool calls. The overt trace reports the injected action in its final reply; the covert trace reports only the user task."></a>
-    <figcaption>Overt (left) vs. covert (right) outcomes. Both traces execute the same tool
-    calls and receive the same ASR, but differ in the final response. The overt outcome
-    reports the injected action, whereas the covert outcome reports only the user task and
-    leaves no visible trace of the attack.</figcaption>
-  </figure>
+  <main id="main" class="page">
+    <header class="paper-header">
+      <h1>Will the User Ever Know?<span>Covert Indirect Prompt Injection Attacks<br class="title-break"> on Tool-Using LLM Agents</span></h1>
+      <p class="venue">EMNLP 2026 Main Conference · <strong>Oral</strong></p>
+      <p class="authors"><span><a href="https://yslmoment.github.io/">Yunseok Lee</a><sup>*</sup></span><span>Yunji Kim<sup>*</sup></span><span>Woojin Lee<sup>†</sup></span></p>
+      <p class="affiliation">Dongguk University, Seoul</p>
+      <p class="author-note"><sup>*</sup> Equal contribution &nbsp; <sup>†</sup> Corresponding author</p>
+      <nav class="paper-links" aria-label="Paper resources">
+        <a href="paper.pdf">Paper</a>
+        <a href="https://arxiv.org/abs/2608.30362">arXiv</a>
+        <a href="https://github.com/yslmoment/ICoA">Code</a>
+        <a href="#bibtex">BibTeX</a>
+      </nav>
+    </header>
 
-  <section id="abstract" aria-labelledby="abstract-title">
-  <h2 id="abstract-title">Abstract</h2>
-  <p>As LLM agents take real-world actions through tools, indirect prompt injection (IPI) has
-  emerged as a serious threat. The standard metric, Attack Success Rate (ASR), counts whether an
-  injection succeeds but ignores what the user notices in the agent&rsquo;s final response. Looking
-  at successful injection traces, we find two distinct outcomes: the agent executes the injection
-  while returning an otherwise normal response, or reports the injected action in its final
-  response, giving the user a chance to notice. We call these <em>covert</em> and <em>overt</em>
-  successes. From the user&rsquo;s perspective, we decompose ASR into the <strong>Covert Success
-  Rate (CSR)</strong>, counting successes leaving no trace in the final response, and the Overt
-  Success Rate (OSR), counting successes the user can detect. To understand what drives the gap, we
-  analyze successful trajectories and find that the agent&rsquo;s behavior after the injection
-  separates covert from overt: covert traces hand control back to the user task before ending,
-  while overt traces end at the attack itself. This split follows from the ReAct format, where the
-  final response summarizes the most recent action. Building on this observation, we propose ICoA
-  (Induced Covert Attack), an IPI attack designed to induce covert outcomes by steering the agent
-  back to the user task after executing the injection. Across four target models on AgentDojo, ICoA
-  achieves the highest CSR, with gains of 3.79&ndash;12.01 percentage points over the strongest
-  baseline.</p>
+    <figure class="teaser">
+      <a href="teaser.png" aria-label="View the overt and covert comparison at full resolution"><img src="teaser.png" width="1293" height="431" alt="Two agent traces execute the same tool calls. The overt final response reports the injected action; the covert response only reports the user's original task."></a>
+      <figcaption><strong>Overt and covert outcomes.</strong> Both traces execute the same tool calls and receive the same attack success rate. Only the overt response reveals the injected action to the user.</figcaption>
+    </figure>
 
-  </section>
+    <section id="abstract" class="prose" aria-labelledby="abstract-title">
+      <h2 id="abstract-title">Abstract</h2>
+      <p>As LLM agents take real-world actions through tools, indirect prompt injection (IPI) has emerged as a serious threat. The standard metric, Attack Success Rate (ASR), counts whether an injection succeeds but ignores what the user notices in the agent’s final response. Looking at successful injection traces, we find two distinct outcomes: the agent executes the injection while returning an otherwise normal response, or reports the injected action in its final response, giving the user a chance to notice. We call these <em>covert</em> and <em>overt</em> successes. From the user’s perspective, we decompose ASR into the <strong>Covert Success Rate (CSR)</strong>, counting successes leaving no trace in the final response, and the <strong>Overt Success Rate (OSR)</strong>, counting successes the user can detect.</p>
+      <p>To understand what drives the gap, we analyze successful trajectories and find that the agent’s behavior after the injection separates covert from overt: covert traces hand control back to the user task before ending, while overt traces end at the attack itself. This split follows from the ReAct format, where the final response summarizes the most recent action. Building on this observation, we propose <strong>ICoA (Induced Covert Attack)</strong>, an IPI attack designed to induce covert outcomes by steering the agent back to the user task after executing the injection. Across four target models on AgentDojo, ICoA achieves the highest CSR, with gains of 3.79–12.01 percentage points over the strongest baseline.</p>
+    </section>
 
-    <section id="results" aria-labelledby="results-title">
+    <section id="method" aria-labelledby="method-title">
+      <div class="prose">
+        <h2 id="method-title">Method</h2>
+        <p>ICoA combines a user framing with a RETURN anchor. The user framing presents the injected task as a follow-up from the user; the anchor directs the agent to resume the original task after executing the injection. Returning to the user task shifts the focus of the final response and can leave the injected action undisclosed.</p>
+      </div>
+      <figure class="method-figure">
+        <a href="method.png" aria-label="View Figure 4, the ICoA method, at full resolution"><img src="method.png" width="1832" height="660" loading="lazy" alt="Figure 4 from the paper. ICoA places a user framing, an injected task, and a RETURN anchor in a tool observation. The resulting trajectory executes the injected task and resumes the original user task before answering."></a>
+        <figcaption><strong>ICoA overview (Figure 4 in the paper).</strong> User framing induces the injected action, while the RETURN anchor brings the agent back to the original task. <a href="paper.pdf#page=5">See Section 4.</a></figcaption>
+      </figure>
+      <p class="prose">We distinguish execution from disclosure using CSR and OSR, with <strong>ASR = CSR + OSR</strong>. Each rate is measured over all evaluated traces. Disclosure is judged from the agent’s final response; it is not a direct measurement of human awareness.</p>
+    </section>
+
+    <section id="results" class="prose" aria-labelledby="results-title">
       <h2 id="results-title">Results</h2>
       <p>We evaluate four target models on 949 task–injection pairs across the Banking, Slack, Travel, and Workspace suites of AgentDojo. In the no-defense setting, ICoA raises CSR by <strong>3.79–12.01 percentage points</strong> over the strongest baseline. The table below also includes the five defense settings reported in the paper.</p>
       <div class="results-controls" hidden>
@@ -95,8 +92,9 @@
       <p class="sr-only" id="results-status" role="status"></p>
     </section>
 
-  <div class="citation-heading"><h2 id="bibtex">BibTeX</h2><button id="copy-citation" type="button" hidden>Copy</button></div>
-<pre tabindex="0" aria-label="BibTeX citation"><code id="citation-code">@inproceedings{lee2026icoa,
+    <section id="bibtex" class="prose" aria-labelledby="citation-title">
+      <div class="citation-heading"><h2 id="citation-title">BibTeX</h2><button id="copy-citation" type="button" hidden>Copy</button></div>
+      <pre tabindex="0" aria-label="BibTeX citation"><code id="citation-code">@inproceedings{lee2026icoa,
   title     = {Will the User Ever Know? Covert Indirect Prompt Injection Attacks on Tool-Using LLM Agents},
   author    = {Lee, Yunseok and Kim, Yunji and Lee, Woojin},
   booktitle = {Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing},
@@ -104,12 +102,13 @@
   note      = {Oral presentation},
   eprint    = {2608.30362},
   archivePrefix = {arXiv},
-  primaryClass  = {cs.AI}
+  primaryClass  = {cs.AI},
+  url       = {https://arxiv.org/abs/2608.30362}
 }</code></pre>
-<p id="copy-status" class="copy-status" role="status"></p>
+      <p id="copy-status" class="copy-status" role="status"></p>
+    </section>
+  </main>
 
-  <footer>Built on <a href="https://github.com/ethz-spylab/agentdojo">AgentDojo</a> v0.1.34.</footer>
-
-</main>
+  <footer class="page"><p><a href="https://damilab.github.io/">DAMILAB</a> · Dongguk University</p><p>Built on <a href="https://github.com/ethz-spylab/agentdojo">AgentDojo</a> v0.1.34.</p></footer>
 </body>
 </html>
